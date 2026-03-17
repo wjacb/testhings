@@ -56,7 +56,7 @@ canvas{
 
 <h2>Simulador de impacto de correos con adjuntos</h2>
 
-<p>Visualización del desastre de usar Reply-All con adjuntos</p>
+<p>Visualización de usar Reply-All con adjuntos</p>
 
 <label>Tamaño del mensaje (MB)</label><br>
 <input id="size" type="number" value="3"><br>
@@ -99,16 +99,20 @@ let forwards = parseInt(document.getElementById("forwards").value);
 let days = parseInt(document.getElementById("days").value);
 
 
+
 let copiasIniciales = recipients * (replicas + 1);
 let copiasRespuestas = copiasIniciales * forwards;
 let totalCopias = copiasIniciales + copiasRespuestas;
 
 let almacenamiento = totalCopias * size;
 
+let nrocorreos = 50000 / almacenamiento;
+
 
 document.getElementById("resultado").innerHTML =
 "Copias totales: " + totalCopias +
-"<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB";
+"<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB"
+"<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2);
 
 
 
