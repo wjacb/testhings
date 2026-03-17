@@ -73,6 +73,9 @@ canvas{
 <label>Días de retención de backup</label><br>
 <input id="days" type="number" value="30"><br>
 
+<label>Número de correos por día</label><br>
+<input id="emailxday" type="number" value="60"><br>
+
 <br>
 
 <button onclick="calcular()">Calcular impacto</button>
@@ -97,22 +100,22 @@ let recipients = parseInt(document.getElementById("recipients").value);
 let replicas = parseInt(document.getElementById("replicas").value);
 let forwards = parseInt(document.getElementById("forwards").value);
 let days = parseInt(document.getElementById("days").value);
+let emailxday = parseInt(document.getElementById("emailxday").value);
 
 
 
 let copiasIniciales = recipients * (replicas + 1);
 let copiasRespuestas = copiasIniciales * forwards;
 let totalCopias = copiasIniciales + copiasRespuestas;
-
 let almacenamiento = totalCopias * size;
-
 let nrocorreos = 50000 / almacenamiento;
-
+let diasrest =  nrocorreos / emailxday;
 
 document.getElementById("resultado").innerHTML =
 "Copias totales: " + totalCopias +
 "<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB" +
-"<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2);
+"<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2) + " correos"
+"<br>" + emailxday + "Correos recibidos al día llenarán el Outlook en " + diasrest.toFixed(2) + " días";
 
 
 
