@@ -114,7 +114,7 @@ let diasrest =  nrocorreos / emailxday;
 document.getElementById("resultado").innerHTML =
 "Copias totales: " + totalCopias +
 "<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB" +
-"<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2) + " correos"
+"<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2) + " correos" + 
 "<br>" + emailxday + "Correos recibidos al día llenarán el Outlook en " + diasrest.toFixed(2) + " días";
 
 
