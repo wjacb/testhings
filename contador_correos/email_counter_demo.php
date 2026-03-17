@@ -111,7 +111,7 @@ let nrocorreos = 50000 / almacenamiento;
 
 document.getElementById("resultado").innerHTML =
 "Copias totales: " + totalCopias +
-"<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB"
+"<br>Espacio ocupado por el correo: " + almacenamiento.toFixed(2) + " MB" +
 "<br>Número de correos para llegar al límite de 50 Gigas: " + nrocorreos.toFixed(2);
 
 
